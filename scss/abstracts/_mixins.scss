@@ -1,0 +1,71 @@
+@use 'variables' as v;
+
+/// Generate a responsive font size
+/// @param {string} $size [base] - The font size to get from the map in _variables.scss
+@mixin font-size($size: base) {
+  @if false == map-has-key(v.$font-sizes, $size) {
+    @error 'No font size exists for "$#{$size}".';
+  }
+
+  $size-breakpoints: map-get(v.$font-sizes, $size);
+
+  @if map-has-key($size-breakpoints, 'DEFAULT') {
+    $breakpoint-map: map-get($size-breakpoints, 'DEFAULT');
+
+    @if type-of($breakpoint-map) == 'list' {
+      font-size: nth($breakpoint-map, 1);
+
+      @if length($breakpoint-map) > 1 {
+        line-height: nth($breakpoint-map, 2);
+      }
+    } @else {
+      font-size: $breakpoint-map;
+    }
+  }
+
+  @if map-has-key($size-breakpoints, 'sm') {
+    $breakpoint-map: map-get($size-breakpoints, 'sm');
+
+    @media screen and (min-width: 600px) {
+      @if type-of($breakpoint-map) == 'list' {
+        font-size: nth($breakpoint-map, 1);
+
+        @if length($breakpoint-map) > 1 {
+          line-height: nth($breakpoint-map, 2);
+        }
+      } @else {
+        font-size: $breakpoint-map;
+      }
+    }
+  }
+
+  @if map-has-key($size-breakpoints, 'lg') {
+    $breakpoint-map: map-get($size-breakpoints, 'lg');
+
+    @media screen and (min-width: 1100px) {
+      @if type-of($breakpoint-map) == 'list' {
+        font-size: nth($breakpoint-map, 1);
+
+        @if length($breakpoint-map) > 1 {
+          line-height: nth($breakpoint-map, 2);
+        }
+      } @else {
+        font-size: $breakpoint-map;
+      }
+    }
+  }
+}
+
+/// Generate a breakpoint
+/// @param {string} $size - Which breakpoint to use from the $breaks map
+@mixin break($size) {
+  @if false == map-has-key(v.$breaks, $size) {
+    @error 'No size exists for "#{$size}". ';
+  }
+
+  $width: map-get(v.$breaks, $size);
+
+  @media screen and (min-width: $width) {
+    @content;
+  }
+}

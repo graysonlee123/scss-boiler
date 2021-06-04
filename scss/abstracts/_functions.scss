@@ -1,0 +1,11 @@
+@use 'variables' as v;
+
+/// Get a color from the color pallette
+/// @return {color} Returns a color from the map
+@function color($color) {
+  @if false == map-has-key(v.$colors, $color) {
+    @error 'No color exists for "#{$color}".';
+  }
+
+  @return map-get(v.$colors, $color);
+}

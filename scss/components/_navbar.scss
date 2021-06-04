@@ -1,0 +1,5 @@
+@use '../abstracts/functions' as f;
+
+.navbar {
+  color: f.color('black');
+}

@@ -1,0 +1,63 @@
+// Breakpoints
+$breaks: (
+  'tablet': 600px,
+  'laptop': 1100px,
+  'desktop': 1400px,
+);
+
+// Colors
+$colors: (
+  'white': hsl(0, 0%, 100%),
+  'black': hsl(0, 0%, 0%),
+  'red': hsl(358, 65%, 51%),
+  'gray': hsl(0, 0%, 55%),
+  'gray-light': hsl(0, 0%, 77%),
+  'gray-dark': hsl(0, 0%, 31%),
+);
+
+// Typography
+$sans-stack: 'Roboto', 'Helvetica', sans-serif;
+$serif-stack: 'Roboto', 'Helvetica', sans-serif;
+$font-sizes: (
+  '2xs': (
+    'DEFAULT': (
+      10px,
+      1.4,
+    ),
+  ),
+  'xs': (
+    'DEFAULT': (
+      11px,
+      1.6,
+    ),
+  ),
+  'sm': (
+    'DEFAULT': (
+      13px,
+      1.6,
+    ),
+  ),
+  'base': (
+    'DEFAULT': (
+      14px,
+      1.6,
+    ),
+    'sm': 16px,
+  ),
+  'lg': (
+    'DEFAULT': (
+      26px,
+      1.2,
+    ),
+    'sm': 28px,
+    'lg': 30px,
+  ),
+  'xl': (
+    'DEFAULT': (
+      28px,
+      1.2,
+    ),
+    'sm': 32px,
+    'lg': 38px,
+  ),
+);
